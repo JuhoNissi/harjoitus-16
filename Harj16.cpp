@@ -24,14 +24,14 @@ struct Tiedot
 	char sukunimi[50];
 	float matka;
 	char osoite[50];
-	char posti[6];
+	char posti[20];
 	int kenka;
 };
 
-void main()
+int main()
 {
+	Tiedot stol = { 0 };
 	cout << "Ohjelma kysyy nyt tietojasi. Ole hyva ja tayta ohjeiden mukaan." << endl;
-	Tiedot stol;
 	cout << "\nKirjoita etunimesi: ";
 	cin >> ws >> stol.etunimi;
 	cout << "\nKirjoita sukunimesi: ";
@@ -39,10 +39,18 @@ void main()
 	cout << "\nKirjoita koulumatkasi kilometreina: ";
 	cin >> ws >> stol.matka;
 	cout << "\nKirjoita osoitteesi: ";
-	cin >> ws >> stol.osoite;
+	cin >> ws;
+	cin.get(stol.osoite, 50);
 	cout << "\nKirjoita postinumerosi: ";
-	cin >> ws >> stol.posti;
+	cin >> ws;
+	cin.get(stol.posti, 6);
 	cout << "\nKirjoita kenkasinumero: ";
 	cin >> ws >> stol.kenka;
 
+	cout <<"\nNimesi on "<< stol.etunimi << " " << stol.sukunimi << endl;
+	cout <<"Koulumatkasi on "<< stol.matka << " km" << endl;
+	cout << "Osoitteesi on " << stol.osoite << endl;
+	cout <<"Postinumerosi on "<< stol.posti << endl;
+	cout <<"Kenkasi koko on " << stol.kenka << endl;
+	return 0;
 }
